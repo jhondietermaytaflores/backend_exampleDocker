@@ -95,3 +95,28 @@ jobs:
             # Levantar contenedores con las nuevas imágenes
             sudo docker-compose up -d --force-recreate
             sudo docker logout
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar correo con IP pública
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Despliegue completado "
+          body: |
+            ¡Hola!
+            
+            El despliegue se ha completado exitosamente.
+            
+            Puedes acceder a la aplicacion en:
+            -> http://${{ secrets.SSH_HOST }}
+            
+            
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          secure: true
