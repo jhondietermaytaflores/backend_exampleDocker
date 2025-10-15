@@ -8,7 +8,7 @@ services:
       - "80:80" 
     restart: always
     environment:
-      - VITE_API_URL=http://backend:3000  
+      - VITE_API_URL=http://137.131.140.228:3000  
     networks:
       - app_network
 

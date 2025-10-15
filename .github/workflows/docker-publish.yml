@@ -115,6 +115,8 @@ jobs:
             
             Puedes acceder a la aplicacion en:
             -> http://${{ secrets.SSH_HOST }}
+            puedes acceder al backend en el puerto 3000 y al frontend en el puerto 80.
+            -> http://${{ secrets.SSH_HOST }}:3000 (Backend)
             
             
           to: ${{ secrets.EMAIL_TO }}

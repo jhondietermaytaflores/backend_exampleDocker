@@ -40,6 +40,6 @@ app.post('/api/clicks', (req, res) => {
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://backend:${PORT}`);
 });
 export default app;
